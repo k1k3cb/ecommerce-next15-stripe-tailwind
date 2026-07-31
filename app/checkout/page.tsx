@@ -3,9 +3,11 @@
 import checkoutAction from '@/actions/checkout-action';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { EmptyState } from '@/components/ui/empty-state';
 import { useCartStore } from '@/store/cart-store';
+import { ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { toast } from 'sonner';
 
 const CheckoutPage = () => {
   const { items, addOrIncreaseItem, decreaseQuantity, clearCart } =
@@ -17,17 +19,15 @@ const CheckoutPage = () => {
 
   if (items.length === 0 || total === 0) {
     return (
-      <div className='flex flex-col items-center justify-center text-center py-16'>
-        <h2 className='text-2xl font-bold mb-2'>🛒 Tu carrito está vacío</h2>
-        <p className='text-gray-600 mb-6'>
-          Parece que aún no has añadido ningún producto.
-        </p>
-        <Link href='/products'>
-          <Button size='lg' className='px-6 py-3 text-lg cursor-pointer'>
-            Ver productos
-          </Button>
-        </Link>
-      </div>
+      <EmptyState
+        icon={<ShoppingCart className='w-12 h-12 text-gray-400 dark:text-gray-500' />}
+        title='Tu carrito está vacío'
+        description='Parece que aún no has añadido ningún producto. ¡Explora nuestro catálogo y encuentra algo que te guste!'
+        action={{
+          label: 'Explorar productos',
+          href: '/products'
+        }}
+      />
     );
   }
 
@@ -119,8 +119,11 @@ const CheckoutPage = () => {
         <Button
           type='button'
           variant='outline'
-          onClick={clearCart}
-          className='w-full py-3 text-lg font-semibold text-red-600 border-red-300 hover:bg-red-50 cursor-pointer'
+          onClick={() => {
+            clearCart();
+            toast.info('Carrito vaciado');
+          }}
+          className='w-full py-3 text-lg font-semibold text-red-600 border-red-300 hover:bg-red-50 dark:hover:bg-red-950 cursor-pointer'
         >
           Vaciar carrito
         </Button>
