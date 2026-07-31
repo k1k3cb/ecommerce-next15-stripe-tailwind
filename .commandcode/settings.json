@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Shell(pnpm:*)"
+      "Shell(pnpm:*)",
+      "Shell(rmdir /s /q node_modules 2>nul & del pnpm-lock.yaml 2>nul & pnpm install)"
     ],
     "deny": [],
     "defaultMode": "default"

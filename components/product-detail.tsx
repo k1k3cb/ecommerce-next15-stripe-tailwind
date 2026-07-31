@@ -41,7 +41,10 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
   return (
     <div className='flex flex-col md:flex-row gap-8 lg:gap-16 items-start'>
       {/* Imagen */}
-      <div className='w-full md:w-1/2 relative h-96 rounded-xl overflow-hidden shadow-lg'>
+      <div
+        className='w-full md:w-1/2 relative h-96 rounded-xl overflow-hidden shadow-lg'
+        style={{ viewTransitionName: `product-image-${product.id}` }}
+      >
         {product.images?.[0] && (
           <Image
             src={product.images[0]}

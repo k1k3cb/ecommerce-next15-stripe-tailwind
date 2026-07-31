@@ -20,7 +20,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <Card className='overflow-hidden rounded-2xl border shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col'>
         {/* Imagen */}
         {product.images?.[0] && (
-          <div className='relative h-56 w-full overflow-hidden'>
+          <div
+            className='relative h-56 w-full overflow-hidden'
+            style={{ viewTransitionName: `product-image-${product.id}` }}
+          >
             <Image
               src={product.images[0]}
               alt={product.name}

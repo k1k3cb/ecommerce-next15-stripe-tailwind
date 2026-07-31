@@ -19,3 +19,5 @@
 - Prefers next-themes for implementing dark mode in Next.js + Tailwind projects. Confidence: 0.85
 - Prefers free/open-source APIs for development and testing (explicitly asked for "API gratuita para las pruebas"). Confidence: 0.85
 - Values visually impressive, demonstrable features for portfolio projects (chose chatbot over backend-only AI features). Confidence: 0.8
+- Prefers smooth, animated page transitions between related views (e.g., product card → product detail) using modern browser-native APIs like View Transitions in Next.js. Confidence: 0.8
+- Embraces experimental/new platform features (e.g., Next.js experimental.viewTransition) when they add visual polish without complex dependencies. Confidence: 0.8
