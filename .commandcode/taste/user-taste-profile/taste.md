@@ -15,3 +15,5 @@
 - Expects verification/testing of implementations (e.g., running migrations, testing endpoints) before declaring a task done. Confidence: 0.85
 - Expects the assistant to keep working through troubleshooting (e.g., Windows-specific shell command issues, pnpm build approval) without surfacing every obstacle. Confidence: 0.85
 - Uses fnm (fast-node-manager) for Node.js version management on Windows. Confidence: 0.85
+- Expects dark mode support as a standard feature in modern web projects (portfolios, e-commerce). Confidence: 0.85
+- Prefers next-themes for implementing dark mode in Next.js + Tailwind projects. Confidence: 0.85

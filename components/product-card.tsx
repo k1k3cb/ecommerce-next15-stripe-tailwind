@@ -43,7 +43,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               €{(price.unit_amount / 100).toFixed(2)}
             </p>
           )}
-          <p className='text-sm text-gray-600 line-clamp-2'>
+          <p className='text-sm text-gray-600 dark:text-gray-400 line-clamp-2'>
             {product.description || 'No description available'}
           </p>
           <Button className='w-full mt-2 cursor-pointer'>Ver Detalles</Button>

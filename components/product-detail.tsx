@@ -58,7 +58,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
       <div className='w-full md:w-1/2 p-4'>
         <h1 className='text-3xl lg:text-4xl font-bold'>{product.name}</h1>
         {product.description && (
-          <p className='text-gray-600 mt-2 text-lg'>{product.description}</p>
+          <p className='text-gray-600 dark:text-gray-400 mt-2 text-lg'>{product.description}</p>
         )}
         <p className='text-2xl font-bold text-primary mt-4'>
           {formatCurrency(unitAmount / 100)}
