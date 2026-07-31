@@ -17,3 +17,5 @@
 - Uses fnm (fast-node-manager) for Node.js version management on Windows. Confidence: 0.85
 - Expects dark mode support as a standard feature in modern web projects (portfolios, e-commerce). Confidence: 0.85
 - Prefers next-themes for implementing dark mode in Next.js + Tailwind projects. Confidence: 0.85
+- Prefers free/open-source APIs for development and testing (explicitly asked for "API gratuita para las pruebas"). Confidence: 0.85
+- Values visually impressive, demonstrable features for portfolio projects (chose chatbot over backend-only AI features). Confidence: 0.8

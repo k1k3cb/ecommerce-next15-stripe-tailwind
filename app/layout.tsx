@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import { ThemeProvider } from '@/components/theme-provider';
+import { ChatWidget } from '@/components/chat-widget';
 import type { Metadata } from 'next';
 import { Toaster } from 'sonner';
 
@@ -23,6 +24,7 @@ export default function RootLayout({
           <main className='flex-grow container mx-auto px-4 py-8'>
             {children}
           </main>
+          <ChatWidget />
           <Toaster position='bottom-right' richColors />
         </ThemeProvider>
       </body>
