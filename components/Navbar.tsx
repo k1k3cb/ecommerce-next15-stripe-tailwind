@@ -1,7 +1,8 @@
 'use client';
 
 import { useCartStore } from '@/store/cart-store';
-import { Menu, ShoppingCartIcon, X } from 'lucide-react';
+import { useSession, signOut } from '@/lib/auth-client';
+import { Menu, ShoppingCartIcon, X, LogOut } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
@@ -10,6 +11,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { items } = useCartStore();
   const cartCount = items.reduce((count, item) => count + item.quantity, 0);
+  const { data: session } = useSession();
 
   useEffect(() => {
     const handleResize = () => {
@@ -64,13 +66,28 @@ const Navbar = () => {
 
         {/* Right side */}
         <div className='flex items-center space-x-5'>
-          {/* Login */}
-          <Link
-            href='/login'
-            className='text-gray-700 hover:text-primary transition font-medium'
-          >
-            Login
-          </Link>
+          {/* Auth */}
+          {session ? (
+            <div className='flex items-center space-x-3'>
+              <span className='text-sm font-medium text-gray-700'>
+                {session.user.name}
+              </span>
+              <button
+                onClick={() => signOut()}
+                className='flex items-center space-x-1 text-gray-700 hover:text-primary transition'
+              >
+                <LogOut className='w-4 h-4' />
+                <span className='text-sm'>Salir</span>
+              </button>
+            </div>
+          ) : (
+            <Link
+              href='/auth/login'
+              className='text-gray-700 hover:text-primary transition font-medium'
+            >
+              Login
+            </Link>
+          )}
 
           {/* Mobile menu button */}
           <Button

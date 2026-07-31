@@ -1,0 +1,17 @@
+# User Taste Profile
+- Communicates in Spanish (informal, casual register). Confidence: 0.95
+- Writes with frequent typos and no diacritics ("comporueba", "estrucutra", "hechoc", "mejorar"), prefers informal/stream-of-consciousness style over polished prose. Confidence: 0.9
+- Gives short, direct task-oriented requests without elaborate explanation of context. Confidence: 0.85
+- Works on Windows (file paths like `D:\web_design\portfolio\...`). Confidence: 0.95
+- Uses pnpm as package manager. Confidence: 0.95
+- Prefers Next.js 15 with App Router for web projects. Confidence: 0.9
+- Prefers Tailwind CSS for styling in Next.js projects. Confidence: 0.9
+- Prefers Stripe for payment processing. Confidence: 0.85
+- Prefers Better Auth for authentication in Next.js projects. Confidence: 0.85
+- Prefers Drizzle ORM for database access. Confidence: 0.85
+- Prefers Neon serverless PostgreSQL as the database. Confidence: 0.85
+- Prefers `lucide-react` for icons. Confidence: 0.8
+- Expects the assistant to use the `better-auth-best-practices` skill when working with Better Auth. Confidence: 0.8
+- Expects verification/testing of implementations (e.g., running migrations, testing endpoints) before declaring a task done. Confidence: 0.85
+- Expects the assistant to keep working through troubleshooting (e.g., Windows-specific shell command issues, pnpm build approval) without surfacing every obstacle. Confidence: 0.85
+- Uses fnm (fast-node-manager) for Node.js version management on Windows. Confidence: 0.85
