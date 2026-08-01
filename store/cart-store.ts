@@ -7,13 +7,14 @@ export interface CartItem {
   price: number;
   imageUrl: string | null;
   quantity: number;
+  size?: string;
 }
 
 interface CartStore {
   items: CartItem[];
   addOrIncreaseItem: (item: CartItem) => void;
-  decreaseQuantity: (id: string) => void;
-  removeItem: (id: string) => void;
+  decreaseQuantity: (id: string, size?: string) => void;
+  removeItem: (id: string, size?: string) => void;
   clearCart: () => void;
 }
 
@@ -24,27 +25,37 @@ export const useCartStore = create<CartStore>()(
 
       addOrIncreaseItem: (item: CartItem) =>
         set(state => {
-          const existingItem = state.items.find(i => i.id === item.id);
+          const existingItem = state.items.find(
+            i => i.id === item.id && i.size === item.size
+          );
           if (existingItem) {
             return {
               items: state.items.map(i =>
-                i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+                i.id === item.id && i.size === item.size
+                  ? { ...i, quantity: i.quantity + 1 }
+                  : i
               )
             };
           }
           return { items: [...state.items, { ...item, quantity: 1 }] };
         }),
 
-      decreaseQuantity: (id: string) =>
+      decreaseQuantity: (id: string, size?: string) =>
         set(state => ({
           items: state.items
-            .map(i => (i.id === id ? { ...i, quantity: i.quantity - 1 } : i))
+            .map(i =>
+              i.id === id && i.size === size
+                ? { ...i, quantity: i.quantity - 1 }
+                : i
+            )
             .filter(i => i.quantity > 0)
         })),
 
-      removeItem: (id: string) =>
+      removeItem: (id: string, size?: string) =>
         set(state => ({
-          items: state.items.filter(item => item.id !== id)
+          items: state.items.filter(
+            item => !(item.id === id && item.size === size)
+          )
         })),
 
       clearCart: () => set({ items: [] })

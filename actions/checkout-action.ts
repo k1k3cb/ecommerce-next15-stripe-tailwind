@@ -15,7 +15,8 @@ const checkoutAction = async (formData: FormData): Promise<void> => {
     price_data: {
       currency: 'eur',
       product_data: {
-        name: item.name
+        name: item.size ? `${item.name} - Talla ${item.size}` : item.name,
+        metadata: item.size ? { size: item.size } : {}
       },
       unit_amount: Math.round(item.price * 100)
     },

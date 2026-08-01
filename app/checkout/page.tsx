@@ -43,7 +43,7 @@ const CheckoutPage = () => {
         <CardContent className='text-gray-700'>
           <ul className='space-y-6'>
             {items.map(item => (
-              <li key={item.id} className='flex items-center gap-4'>
+              <li key={`${item.id}-${item.size}`} className='flex items-center gap-4'>
                 {/* Imagen mini */}
                 {item.imageUrl && (
                   <div className='w-16 h-16 relative rounded-lg overflow-hidden shadow'>
@@ -60,7 +60,12 @@ const CheckoutPage = () => {
                 {/* Info + controles */}
                 <div className='flex-1'>
                   <div className='flex justify-between items-center'>
-                    <span className='font-medium'>{item.name}</span>
+                    <div>
+                      <span className='font-medium'>{item.name}</span>
+                      {item.size && (
+                        <span className='text-sm text-gray-500 ml-2'>Talla {item.size}</span>
+                      )}
+                    </div>
                     <span className='font-semibold'>
                       €{(item.price * item.quantity).toFixed(2)}
                     </span>
@@ -69,7 +74,7 @@ const CheckoutPage = () => {
                   {/* Controles */}
                   <div className='flex items-center gap-4 mt-2'>
                     <Button
-                      onClick={() => decreaseQuantity(item.id)}
+                      onClick={() => decreaseQuantity(item.id, item.size)}
                       variant='outline'
                       className='w-10 h-10 text-lg'
                       disabled={item.quantity === 0}
@@ -83,7 +88,7 @@ const CheckoutPage = () => {
                       onClick={() =>
                         addOrIncreaseItem({
                           ...item,
-                          quantity: 1 // siempre suma 1
+                          quantity: 1
                         })
                       }
                       variant='outline'
