@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { ThemeToggle } from './theme-toggle';
+import CartDropdown from './cart-dropdown';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -49,7 +50,7 @@ const Navbar = () => {
           </Link>
           <Link
             href='/checkout'
-            className='relative flex flex-col items-center hover:scale-105 transition'
+            className='relative flex flex-col items-center hover:scale-105 transition group'
           >
             <div className='relative'>
               <ShoppingCartIcon className='w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-primary transition' />
@@ -59,6 +60,7 @@ const Navbar = () => {
                 </span>
               )}
             </div>
+            <CartDropdown />
           </Link>
         </div>
 
