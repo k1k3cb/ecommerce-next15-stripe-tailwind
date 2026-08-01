@@ -21,3 +21,8 @@
 - Values visually impressive, demonstrable features for portfolio projects (chose chatbot over backend-only AI features). Confidence: 0.8
 - Prefers smooth, animated page transitions between related views (e.g., product card → product detail) using modern browser-native APIs like View Transitions in Next.js. Confidence: 0.8
 - Embraces experimental/new platform features (e.g., Next.js experimental.viewTransition) when they add visual polish without complex dependencies. Confidence: 0.8
+- Builds projects specifically for job-search portfolio; cares about what impresses recruiters (tests, README, error boundaries, CI/CD). Confidence: 0.9
+- Prefers Spanish-language content and branding for e-commerce products and UI (store name, product descriptions, cart labels, footer). Confidence: 0.9
+- Trusts the assistant to propose and implement broad cross-cutting improvements (SEO, accessibility, 404 pages, about pages) without micro-managing each one. Confidence: 0.85
+- Open to the assistant suggesting creative decisions like project/brand naming rather than providing them upfront. Confidence: 0.8
+- Values discussion and prioritization advice before jumping into implementation of large feature sets (e.g., asked what to add before requesting implementation). Confidence: 0.8
