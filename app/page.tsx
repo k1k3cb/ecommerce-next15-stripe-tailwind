@@ -20,10 +20,10 @@ export default async function Home() {
           {/* Texto */}
           <div className='space-y-6 max-w-lg'>
             <h1 className='text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl'>
-              Bienvenido a <span className='text-primary'>mi ecommerce</span>
+              Bienvenido a <span className='text-primary'>SneakDrop</span>
             </h1>
             <p className='text-lg text-gray-600 dark:text-gray-400 leading-relaxed'>
-              Descubre los últimos productos al mejor precio. Compra fácil,
+              Descubre las mejores zapatillas y ropa urbana al mejor precio. Compra fácil,
               rápido y seguro.
             </p>
             <div className='flex flex-wrap gap-4'>
@@ -78,10 +78,10 @@ export default async function Home() {
       </section>
 
       {/* Footer */}
-      <footer className='bg-black dark:bg-gray-900 text-white py-10 mt-16'>
+      <footer className='bg-black dark:bg-gray-900 text-white py-10 mt-16' role='contentinfo'>
         <div className='mx-auto max-w-6xl px-6 flex flex-col sm:flex-row justify-between items-center gap-4'>
           <p className='text-sm'>
-            &copy; {new Date().getFullYear()} Mi ecommerce. Todos los derechos
+            &copy; {new Date().getFullYear()} SneakDrop. Todos los derechos
             reservados.
           </p>
           <div className='flex gap-6 text-sm'>

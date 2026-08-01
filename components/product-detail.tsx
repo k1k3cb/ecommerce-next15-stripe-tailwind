@@ -80,13 +80,16 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
 
         {/* Selector de tallas */}
         {hasSizes && (
-          <div className='mt-6'>
-            <p className='text-sm font-medium mb-2'>Talla</p>
-            <div className='flex flex-wrap gap-2'>
+          <fieldset className='mt-6'>
+            <legend className='text-sm font-medium mb-2'>Talla</legend>
+            <div className='flex flex-wrap gap-2' role='radiogroup'>
               {sizes.map(size => (
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
+                  role='radio'
+                  aria-checked={selectedSize === size}
+                  aria-label={`Talla ${size.trim()}`}
                   className={`px-4 py-2 border rounded-md text-sm font-medium transition-colors cursor-pointer ${
                     selectedSize === size
                       ? 'bg-primary text-primary-foreground border-primary'
@@ -97,20 +100,21 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
                 </button>
               ))}
             </div>
-          </div>
+          </fieldset>
         )}
 
         {/* Controles */}
-        <div className='flex items-center gap-4 mt-8'>
+        <div className='flex items-center gap-4 mt-8' role='group' aria-label='Controles de cantidad'>
           <Button
             onClick={onDecreaseItem}
             variant='outline'
             className='w-12 h-12 text-2xl cursor-pointer'
             disabled={quantity === 0}
+            aria-label='Disminuir cantidad'
           >
             -
           </Button>
-          <span className='text-2xl font-semibold w-8 text-center'>
+          <span className='text-2xl font-semibold w-8 text-center' aria-live='polite' aria-label={`${quantity} en el carrito`}>
             {quantity}
           </span>
           <Button
@@ -118,6 +122,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
             variant='outline'
             className='w-12 h-12 text-2xl cursor-pointer'
             disabled={hasSizes && !selectedSize}
+            aria-label='Aumentar cantidad'
           >
             +
           </Button>

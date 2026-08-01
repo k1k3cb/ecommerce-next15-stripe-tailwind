@@ -7,8 +7,28 @@ import { Toaster } from 'sonner';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'MyEcommerce',
-  description: 'Tu tienda online de confianza'
+  title: {
+    default: 'SneakDrop - Zapatillas y Ropa Urbana',
+    template: '%s | SneakDrop'
+  },
+  description:
+    'Tu tienda de zapatillas y ropa urbana. Encuentra las mejores marcas: Nike, Adidas, Jordan, Converse y más. Envío rápido y pago seguro.',
+  keywords: [
+    'zapatillas',
+    'sneakers',
+    'ropa urbana',
+    'Nike',
+    'Adidas',
+    'Jordan',
+    'Converse',
+    'streetwear',
+    'tienda online'
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'es_ES',
+    siteName: 'SneakDrop'
+  }
 };
 
 export default function RootLayout({

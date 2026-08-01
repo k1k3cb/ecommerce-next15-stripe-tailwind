@@ -24,14 +24,15 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className='sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg shadow-md'>
+    <nav className='sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg shadow-md' role='navigation' aria-label='Navegación principal'>
       <div className='container mx-auto flex items-center justify-between py-4 px-6'>
         {/* Logo */}
         <Link
           href='/'
           className='text-2xl font-extrabold text-gray-900 dark:text-white hover:text-primary transition'
+          aria-label='SneakDrop - Ir a inicio'
         >
-          My<span className='text-primary'>Ecommerce</span>
+          Sneak<span className='text-primary'>Drop</span>
         </Link>
 
         {/* Desktop links */}
@@ -51,11 +52,12 @@ const Navbar = () => {
           <Link
             href='/checkout'
             className='relative flex flex-col items-center hover:scale-105 transition group'
+            aria-label={`Carrito de compra, ${cartCount} ${cartCount === 1 ? 'artículo' : 'artículos'}`}
           >
             <div className='relative'>
-              <ShoppingCartIcon className='w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-primary transition' />
+              <ShoppingCartIcon className='w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-primary transition' aria-hidden='true' />
               {cartCount > 0 && (
-                <span className='absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-white text-xs font-bold shadow'>
+                <span className='absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-white text-xs font-bold shadow' aria-hidden='true'>
                   {cartCount}
                 </span>
               )}
