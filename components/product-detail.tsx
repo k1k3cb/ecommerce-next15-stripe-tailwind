@@ -18,11 +18,10 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
   // Leer tallas desde metadata (ej: "S,M,L,XL")
   const sizes = product.metadata?.sizes?.split(',') || [];
   const hasSizes = sizes.length > 0;
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [selectedSize, setSelectedSize] = useState<string | undefined>(undefined);
 
-  // Buscar item del carrito por id Y talla
   const cartItem = items.find(
-    item => item.id === product.id && item.size === selectedSize
+    item => item.id === product.id && item.size === (hasSizes ? selectedSize : undefined)
   );
   const quantity = cartItem ? cartItem.quantity : 0;
 
@@ -41,12 +40,12 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
       price: unitAmount / 100,
       imageUrl: product.images?.[0] || null,
       quantity: 1,
-      size: hasSizes ? selectedSize! : undefined
+      size: selectedSize
     });
   };
 
   const onDecreaseItem = () => {
-    decreaseQuantity(product.id, hasSizes ? selectedSize! : undefined);
+    decreaseQuantity(product.id, selectedSize);
   };
 
   return (
