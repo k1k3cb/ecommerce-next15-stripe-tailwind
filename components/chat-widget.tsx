@@ -84,9 +84,9 @@ export function ChatWidget() {
   };
 
   const quickQuestions = [
-    '¿Qué productos tenéis?',
-    '¿Cuánto cuesta el envío?',
-    '¿Cómo puedo devolver un producto?'
+    '¿Qué productos para mujer tenéis?',
+    '¿Tenéis Nike en el catálogo?',
+    '¿Cuánto cuesta el envío?'
   ];
 
   return (
@@ -124,7 +124,7 @@ export function ChatWidget() {
               <div className='flex items-center gap-2'>
                 <Bot className='w-5 h-5' />
                 <div>
-                  <p className='font-semibold text-sm'>Asistente MyEcommerce</p>
+                  <p className='font-semibold text-sm'>Asistente SneakDrop</p>
                   <p className='text-xs opacity-80'>¿En qué puedo ayudarte?</p>
                 </div>
               </div>
@@ -148,7 +148,7 @@ export function ChatWidget() {
                     </div>
                     <div className='bg-gray-100 dark:bg-gray-800 rounded-2xl rounded-tl-sm px-4 py-2 max-w-[85%]'>
                       <p className='text-sm'>
-                        ¡Hola! Soy el asistente de MyEcommerce. ¿En qué puedo
+                        ¡Hola! Soy el asistente de SneakDrop. ¿En qué puedo
                         ayudarte?
                       </p>
                     </div>
