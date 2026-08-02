@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Shell(pnpm:*)",
-      "Shell(rmdir /s /q node_modules 2>nul & del pnpm-lock.yaml 2>nul & pnpm install)"
+      "Shell(rmdir /s /q node_modules 2>nul & del pnpm-lock.yaml 2>nul & pnpm install)",
+      "Shell(dir:*)",
+      "Shell(npx tsc --noEmit)",
+      "Shell(npx vitest run --reporter=verbose)"
     ],
     "deny": [],
     "defaultMode": "default"
