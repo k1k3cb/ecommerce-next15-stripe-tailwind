@@ -5,13 +5,18 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { useCartStore } from '@/store/cart-store';
+import { useSession } from '@/lib/auth-client';
 import { ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
 const CheckoutPage = () => {
   const { items, addOrIncreaseItem, decreaseQuantity, clearCart } =
     useCartStore();
+  const { data: session } = useSession();
+  const router = useRouter();
+
   const total = items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -30,6 +35,17 @@ const CheckoutPage = () => {
       />
     );
   }
+
+  const handleCheckout = () => {
+    if (!session) {
+      toast.info('Inicia sesión para finalizar la compra');
+      router.push('/auth/login?redirectTo=/checkout');
+      return;
+    }
+    // If logged in, submit the form programmatically
+    const form = document.getElementById('checkout-form') as HTMLFormElement;
+    form?.requestSubmit();
+  };
 
   return (
     <div>
@@ -108,17 +124,21 @@ const CheckoutPage = () => {
       </Card>
 
       {/* Acciones */}
-      <form action={checkoutAction} className='max-w-2xl mx-auto space-y-3'>
+      <form action={checkoutAction} id='checkout-form' className='max-w-2xl mx-auto space-y-3'>
         <input type='hidden' name='items' value={JSON.stringify(items)} />
+      </form>
+
+      <div className='max-w-2xl mx-auto space-y-3'>
         <Button
-          type='submit'
+          type='button'
+          onClick={handleCheckout}
           variant='default'
           className='w-full py-3 text-lg font-semibold              
              text-white shadow-md bg-gray-800 
              hover:bg-black hover:shadow-lg
              transition-all duration-300 cursor-pointer'
         >
-          Proceder al pago
+          {session ? 'Proceder al pago' : 'Iniciar sesión para pagar'}
         </Button>
 
         <Button
@@ -132,7 +152,7 @@ const CheckoutPage = () => {
         >
           Vaciar carrito
         </Button>
-      </form>
+      </div>
     </div>
   );
 };

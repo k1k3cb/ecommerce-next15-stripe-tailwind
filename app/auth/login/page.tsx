@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { signIn } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 export default function LoginPage() {
@@ -11,6 +11,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirectTo") || "/";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +28,7 @@ export default function LoginPage() {
       setError(error.message || "Error al iniciar sesión");
       setLoading(false);
     } else {
-      router.push("/");
+      router.push(redirectTo);
     }
   };
 
@@ -81,7 +83,7 @@ export default function LoginPage() {
 
         <p className="mt-4 text-center text-sm text-muted-foreground">
           ¿No tienes cuenta?{" "}
-          <Link href="/auth/register" className="text-primary hover:underline">
+          <Link href={"/auth/register" + (redirectTo !== "/" ? "?redirectTo=" + redirectTo : "")} className="text-primary hover:underline">
             Regístrate
           </Link>
         </p>

@@ -8,7 +8,7 @@ export async function middleware(request: NextRequest) {
 
   const isAuthPage = request.nextUrl.pathname.startsWith("/auth");
   const isApiRoute = request.nextUrl.pathname.startsWith("/api");
-  const isPublicPage = ["/", "/products"].includes(request.nextUrl.pathname);
+  const isPublicPage = ["/", "/products", "/checkout"].includes(request.nextUrl.pathname) || request.nextUrl.pathname.startsWith("/products/");
 
   if (isApiRoute) {
     return NextResponse.next();
