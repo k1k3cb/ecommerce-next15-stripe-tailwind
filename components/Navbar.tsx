@@ -67,28 +67,31 @@ const Navbar = () => {
         </div>
 
         {/* Right side */}
-        <div className='flex items-center space-x-3'>
+        <div className='flex items-center gap-2'>
           {/* Theme toggle */}
           <ThemeToggle />
 
+          {/* Divider */}
+          <div className='hidden md:block w-px h-6 bg-gray-200 dark:bg-gray-700 mx-1' aria-hidden='true' />
+
           {/* Auth */}
           {session ? (
-            <div className='flex items-center space-x-3'>
-              <span className='text-sm font-medium text-gray-700 dark:text-gray-300'>
+            <div className='hidden md:flex items-center gap-3'>
+              <span className='text-sm font-medium text-gray-700 dark:text-gray-300 truncate max-w-[120px]'>
                 {session.user.name}
               </span>
               <button
                 onClick={() => signOut()}
-                className='flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary transition'
+                className='flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors px-2.5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 hover:border-red-200 dark:hover:border-red-800 cursor-pointer'
               >
-                <LogOut className='w-4 h-4' />
-                <span className='text-sm'>Salir</span>
+                <LogOut className='w-3.5 h-3.5' />
+                Salir
               </button>
             </div>
           ) : (
             <Link
               href='/auth/login'
-              className='text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium'
+              className='hidden md:inline-flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors px-3 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 hover:border-primary/30'
             >
               Login
             </Link>
@@ -133,6 +136,29 @@ const Navbar = () => {
               >
                 Cesta
               </Link>
+            </li>
+            <li className='border-t dark:border-gray-800 pt-4 mt-2'>
+              {session ? (
+                <div className='flex items-center justify-between'>
+                  <span className='text-sm text-gray-500 dark:text-gray-400'>
+                    {session.user.name}
+                  </span>
+                  <button
+                    onClick={() => signOut()}
+                    className='flex items-center gap-1.5 text-sm text-red-500 hover:text-red-600 transition-colors cursor-pointer'
+                  >
+                    <LogOut className='w-4 h-4' />
+                    Salir
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  href='/auth/login'
+                  className='block py-2 hover:text-primary transition'
+                >
+                  Iniciar sesion
+                </Link>
+              )}
             </li>
           </ul>
         </div>
