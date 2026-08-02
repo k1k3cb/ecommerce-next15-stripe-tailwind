@@ -6,7 +6,9 @@
       "Shell(dir:*)",
       "Shell(npx tsc --noEmit)",
       "Shell(npx vitest run --reporter=verbose)",
-      "Shell(npx vitest run)"
+      "Shell(npx vitest run)",
+      "Shell(npx next dev)",
+      "Shell(agent-browser:*)"
     ],
     "deny": [],
     "defaultMode": "default"

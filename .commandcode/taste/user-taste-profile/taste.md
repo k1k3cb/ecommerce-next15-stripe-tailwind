@@ -26,3 +26,6 @@
 - Trusts the assistant to propose and implement broad cross-cutting improvements (SEO, accessibility, 404 pages, about pages) without micro-managing each one. Confidence: 0.85
 - Open to the assistant suggesting creative decisions like project/brand naming rather than providing them upfront. Confidence: 0.8
 - Values discussion and prioritization advice before jumping into implementation of large feature sets (e.g., asked what to add before requesting implementation). Confidence: 0.8
+- Provides external reference links/templates when requesting deliverables (e.g., shared a GitHub README template as inspiration). Confidence: 0.8
+- Expects portfolio READMEs to include live screenshots of the project and highlight standout features (e.g., AI integration). Confidence: 0.85
+- Prefers the assistant to automate manual tasks (e.g., taking browser screenshots) using available tools rather than being told to do them manually. Confidence: 0.85
