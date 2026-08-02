@@ -27,8 +27,8 @@ const checkoutAction = async (formData: FormData): Promise<void> => {
     payment_method_types: ['card'],
     line_items,
     mode: 'payment',
-    success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
-    cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/cancel`
+    success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success`,
+    cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/checkout`
   });
   redirect(session.url!);
 };

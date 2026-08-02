@@ -9,35 +9,31 @@ const SuccessPage = () => {
   const { clearCart } = useCartStore();
 
   useEffect(() => {
-    // Limpiar carrito tras el pago
     clearCart();
   }, [clearCart]);
 
   return (
     <div className='flex flex-col items-center justify-center min-h-[70vh] text-center px-4'>
-      
       <CheckCircle2 className='w-20 h-20 text-green-500 mb-6 animate-bounce' />
 
       <h1 className='text-3xl font-bold text-gray-900 dark:text-white'>
-        Payment Successful 🎉
+        Pago realizado con exito
       </h1>
       <p className='mt-2 text-gray-600 dark:text-gray-400 max-w-md'>
-        Thank you for your purchase! Your order is being processed and you will
-        receive a confirmation email shortly.
+        Gracias por tu compra. Tu pedido esta en proceso y recibiras un email
+        de confirmacion en breve.
       </p>
 
-      
       <div className='mt-8 space-y-4 w-full max-w-sm'>
         <Link
           href='/products'
           className='block w-full py-3 rounded-xl font-semibold 
-                     bg-gradient-to-r from-gray-900 via-black to-gray-800 
-                     dark:from-gray-100 dark:via-white dark:to-gray-100
+                     bg-gray-900 dark:bg-white
                      dark:text-gray-900
                      text-white shadow-md hover:opacity-90 
                      transition-all duration-300'
         >
-          Continue Shopping
+          Seguir comprando
         </Link>
 
         <Link
@@ -46,7 +42,7 @@ const SuccessPage = () => {
                      border border-gray-800 dark:border-gray-300 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800
                      transition-all duration-300'
         >
-          Back to Home
+          Volver al inicio
         </Link>
       </div>
     </div>
